@@ -1,0 +1,53 @@
+From 9ada4136f3453f0cf6aa4ae0f526989925b26d48 Mon Sep 17 00:00:00 2001
+From: ArchanaShinde1 <archana.shinde2504@gmail.com>
+Date: Tue, 23 Jan 2024 09:34:06 +0000
+Subject: [PATCH] Bump cXX standard
+
+---
+ tools/cpp/bsd_cc_toolchain_config.bzl     | 2 +-
+ tools/cpp/unix_cc_configure.bzl           | 2 +-
+ tools/cpp/windows_cc_toolchain_config.bzl | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/tools/cpp/bsd_cc_toolchain_config.bzl b/tools/cpp/bsd_cc_toolchain_config.bzl
+index dc45e85917..498e309b55 100644
+--- a/tools/cpp/bsd_cc_toolchain_config.bzl
++++ b/tools/cpp/bsd_cc_toolchain_config.bzl
+@@ -160,7 +160,7 @@ def _impl(ctx):
+             ),
+             flag_set(
+                 actions = all_cpp_compile_actions + [ACTION_NAMES.lto_backend],
+-                flag_groups = [flag_group(flags = ["-std=c++0x"])],
++                flag_groups = [flag_group(flags = ["-std=c++14"])],
+             ),
+         ],
+     )
+diff --git a/tools/cpp/unix_cc_configure.bzl b/tools/cpp/unix_cc_configure.bzl
+index 9f44f4bb63..6928f4a7f4 100644
+--- a/tools/cpp/unix_cc_configure.bzl
++++ b/tools/cpp/unix_cc_configure.bzl
+@@ -397,7 +397,7 @@ def configure_unix_toolchain(repository_ctx, cpu_value, overriden_tools):
+     cxx_opts = split_escaped(get_env_var(
+         repository_ctx,
+         "BAZEL_CXXOPTS",
+-        "-std=c++0x",
++        "-std=c++14",
+         False,
+     ), ":")
+ 
+diff --git a/tools/cpp/windows_cc_toolchain_config.bzl b/tools/cpp/windows_cc_toolchain_config.bzl
+index f0233ceafb..52280f77d9 100644
+--- a/tools/cpp/windows_cc_toolchain_config.bzl
++++ b/tools/cpp/windows_cc_toolchain_config.bzl
+@@ -1146,7 +1146,7 @@ def _impl(ctx):
+                         ACTION_NAMES.lto_backend,
+                         ACTION_NAMES.clif_match,
+                     ],
+-                    flag_groups = [flag_group(flags = ["-std=gnu++0x"])],
++                    flag_groups = [flag_group(flags = ["-std=gnu++14"])],
+                 ),
+             ],
+         )
+-- 
+2.40.1
+

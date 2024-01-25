@@ -13,13 +13,15 @@ source:
     - 0101-Add-support-for-ppc64le-embedded-jdk.patch
     - 0102-Fixed-Java-heap-OOM-s390x.patch                            # [s390x]
     - 0103-Fixed-ByteOrder-md5digest-state-value-s390x.patch          # [s390x]
+    - 0104-fix-for-gcctoolset13-update-abseil-cpp-to-20230802.patch
+    - 0105-Bump-cXX-standard-to-std-CXX14.patch
 
 build:
   number: 1
   ignore_prefix_files: True
   binary_relocation: False  # [osx]
   script_env:                 #[ppc_arch == 'p10']
-    - GCC_11_HOME             #[ppc_arch == 'p10']
+    - GCC_HOME                #[ppc_arch == 'p10']
 
 requirements:
   build:
